@@ -38,7 +38,16 @@ class AddressesController extends Controller
      */
     public function store(Request $request)
     {
-        var_dump($request->name);
+        $newAddress = new Address([
+            'name' => $request->input('name'),
+            'city' => $request->input('city'),
+            'area' => $request->input('area'),
+            'street' => $request->input('street'),
+            'house' => $request->input('house'),
+            'info' => $request->input('info'),
+        ]);
+        $newAddress->save();
+        return redirect(route('addresses'));
     }
 
     /**
