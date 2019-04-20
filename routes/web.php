@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('addresses');
-});
+Route::get('/', 'AddressesController@index')->name('addresses');
+Route::post('/store', 'AddressesController@store')->name('addresses.store');

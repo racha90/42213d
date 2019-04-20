@@ -41,14 +41,15 @@
                 <div class="l_col adrs">
                     <h2>Add New Address</h2>
 
-                    <form action="" method="">
+                    <form action="{{ route('addresses.store') }}" method="POST">
+                        @csrf
                         <div class="field">
                             <label>Name *</label>
-                            <input type="text" value="" palceholder="" class="vl_empty" />
+                            <input type="text" value="" id="name" name="name" placeholder="Name" class="vl_empty" />
                         </div>
                         <div class="field">
                             <label>Your city *</label>
-                            <select class="vl_empty">
+                            <select class="vl_empty" id="city" name="city">
                                 <option class="plh"></option>
                                 <option value="1">City 1</option>
                                 <option value="2">City 2</option>
@@ -56,7 +57,7 @@
                         </div>
                         <div class="field">
                             <label>Your area *</label>
-                            <select>
+                            <select id="area" name="area">
                                 <option class="plh"></option>
                                 <option>Area 1</option>
                                 <option>Area 2</option>
@@ -65,16 +66,16 @@
 
                         <div class="field">
                             <label>Street</label>
-                            <input type="text" value="" palceholder="" class="vl_empty" />
+                            <input type="text" value="" id="street" name="street" placeholder="Street" class="vl_empty" />
                         </div>
                         <div class="field">
                             <label>House # </label>
-                            <input type="text" value="" palceholder="House Name / Number" />
+                            <input type="text" value="" id="house" name="house" placeholder="House Name / Number" />
                         </div>
 
                         <div class="field">
                             <label class="pos_top">Additional information</label>
-                            <textarea></textarea>
+                            <textarea id="info" name="info"></textarea>
                         </div>
 
                         <div class="field">
