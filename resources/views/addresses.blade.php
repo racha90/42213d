@@ -49,7 +49,7 @@
                         </div>
                         <div class="field">
                             <label>Your city *</label>
-                            <select class="vl_empty" id="city" name="city">
+                            <select class="vl_empty" id="city" name="city_id">
                                 <option class="plh"></option>
                                 @foreach($cities as $city)
                                     <option value="{{ $city->id }}">{{ $city->name }}</option>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="field">
                             <label>Your area *</label>
-                            <select id="area" name="area">
+                            <select id="area" name="area_id">
                                 <option class="plh"></option>
                                 @foreach($areas as $area)
                                     <option value="{{ $area->id }}">{{ $area->name }}</option>
@@ -94,8 +94,8 @@
                             <div class="item">
                                 <h3>{{ $address->name }}</h3>
                                 <p>
-                                    {{ $address->city()->name }},
-                                    {{ $address->area()->name }},
+                                    {{ $address->city->name }},
+                                    {{ $address->area->name }},
                                     {{ $address->street }},
                                     {{ $address->house }},
                                     {{ $address->info }}

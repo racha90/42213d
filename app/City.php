@@ -6,17 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class City extends Model
 {
+    protected $table = 'cities';
+
     protected $fillable = [
         'name',
     ];
 
     public function addresses()
     {
-        return $this->belongsTo('App\Address');
+        return $this->hasMany('App\Address');
     }
 
     public function areas()
     {
-        return $this->belongsTo('App\Area');
+        return $this->hasMany('App\Area');
     }
 }

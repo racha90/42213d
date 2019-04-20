@@ -18,9 +18,9 @@ class CreateAddressesTable extends Migration
             $table->string('name');
             $table->integer('city_id');
             $table->integer('area_id');
-            $table->string('street');
-            $table->string('house');
-            $table->text('info');
+            $table->string('street')->nullable();
+            $table->string('house')->nullable();;
+            $table->text('info')->nullable();
             $table->timestamps();
         });
     }

@@ -6,17 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
+    protected $table = 'addresses';
+
     protected $fillable = [
-        'name', 'city_id', 'area_id', 'street', 'house', 'info',
+        'name', 'city_id', 'area_id', 'street', 'house', 'info'
     ];
 
     public function city()
     {
-        return $this->hasOne('App\City');
+        return $this->belongsTo('App\City');
     }
 
     public function area()
     {
-        return $this->hasOne('App\Area');
+        return $this->belongsTo('App\Area');
     }
 }

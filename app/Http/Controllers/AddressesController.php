@@ -46,14 +46,23 @@ class AddressesController extends Controller
     {
         $newAddress = new Address([
             'name' => $request->input('name'),
-            'city' => $request->input('city_id'),
-            'area' => $request->input('area_id'),
+            'city_id' => $request->get('city_id'),
+            'area_id' => $request->get('area_id'),
             'street' => $request->input('street'),
             'house' => $request->input('house'),
             'info' => $request->input('info'),
         ]);
         $newAddress->save();
-        return redirect(route('addresses'));
+
+        $addresses = Address::orderBy('name', 'asc')->get();
+        $cities = City::all();
+        $areas = Area::all();
+
+        return view('addresses', [
+            'addresses' => $addresses,
+            'cities' => $cities,
+            'areas' => $areas,
+        ]);
     }
 
     /**
