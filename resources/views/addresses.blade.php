@@ -94,8 +94,8 @@
                             <div class="item">
                                 <h3>{{ $address->name }}</h3>
                                 <p>
-                                    {{ $address->city }},
-                                    {{ $address->area }},
+                                    {{ $address->city()->name }},
+                                    {{ $address->area()->name }},
                                     {{ $address->street }},
                                     {{ $address->house }},
                                     {{ $address->info }}
