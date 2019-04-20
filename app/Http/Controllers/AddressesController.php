@@ -16,7 +16,7 @@ class AddressesController extends Controller
      */
     public function index()
     {
-        $addresses = Address::orderBy('name', 'asc')->get();
+        $addresses = Address::orderBy('name', 'asc')->simplePaginate(3);
         $cities = City::all();
         $areas = Area::all();
         return view('addresses', [
@@ -54,7 +54,7 @@ class AddressesController extends Controller
         ]);
         $newAddress->save();
 
-        $addresses = Address::orderBy('name', 'asc')->get();
+        $addresses = Address::orderBy('name', 'asc')->simplePaginate(3);
         $cities = City::all();
         $areas = Area::all();
 

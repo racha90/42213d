@@ -106,6 +106,7 @@
                             </div>
                         @endforeach
                     </div>
+                    {{ $addresses->links() }}
                 </div>
             </div>
         </div>
