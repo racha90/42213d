@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Address;
+use App\Area;
+use App\City;
 
 class AddressesController extends Controller
 {
@@ -15,8 +17,12 @@ class AddressesController extends Controller
     public function index()
     {
         $addresses = Address::orderBy('name', 'asc')->get();
+        $cities = City::all();
+        $areas = Area::all();
         return view('addresses', [
-            'addresses' => $addresses
+            'addresses' => $addresses,
+            'cities' => $cities,
+            'areas' => $areas,
         ]);
     }
 
@@ -40,8 +46,8 @@ class AddressesController extends Controller
     {
         $newAddress = new Address([
             'name' => $request->input('name'),
-            'city' => $request->input('city'),
-            'area' => $request->input('area'),
+            'city' => $request->input('city_id'),
+            'area' => $request->input('area_id'),
             'street' => $request->input('street'),
             'house' => $request->input('house'),
             'info' => $request->input('info'),

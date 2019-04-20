@@ -51,16 +51,18 @@
                             <label>Your city *</label>
                             <select class="vl_empty" id="city" name="city">
                                 <option class="plh"></option>
-                                <option value="1">City 1</option>
-                                <option value="2">City 2</option>
+                                @foreach($cities as $city)
+                                    <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="field">
                             <label>Your area *</label>
                             <select id="area" name="area">
                                 <option class="plh"></option>
-                                <option>Area 1</option>
-                                <option>Area 2</option>
+                                @foreach($areas as $area)
+                                    <option value="{{ $area->id }}">{{ $area->name }}</option>
+                                @endforeach
                             </select>
                         </div>
 

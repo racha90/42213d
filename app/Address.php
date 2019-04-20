@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     protected $fillable = [
-        'name', 'city', 'area', 'street', 'house', 'info',
+        'name', 'city_id', 'area_id', 'street', 'house', 'info',
     ];
 
-    public function cities()
+    public function city()
     {
         return $this->hasOne('App\City');
+    }
+
+    public function area()
+    {
+        return $this->hasOne('App\Area');
     }
 }
