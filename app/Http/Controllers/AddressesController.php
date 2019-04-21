@@ -45,15 +45,16 @@ class AddressesController extends Controller
      */
     public function store(AddressRequest $request)
     {
-        $newAddress = new Address([
-            'name' => $request->input('name'),
-            'city_id' => $request->input('city_id'),
-            'area_id' => $request->input('area_id'),
-            'street' => $request->input('street'),
-            'house' => $request->input('house'),
-            'info' => $request->input('info')
-        ]);
-        $newAddress->save();
+        Address::create(
+            [
+                'name' => $request->input('name'),
+                'city_id' => $request->input('city_id'),
+                'area_id' => $request->input('area_id'),
+                'street' => $request->input('street'),
+                'house' => $request->input('house'),
+                'info' => $request->input('info')
+            ]
+        );
 
         return redirect(route('addresses'));
     }
