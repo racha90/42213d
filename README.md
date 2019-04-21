@@ -6,7 +6,7 @@ docker-compose up --build -d
 ```
 ### Work with Laravel in Docker container
 ```bash
-docker exec -it laravel_app /bin/sh;
+docker exec -it laravel_app /bin/sh
 php artisan key:generate
 php artisan migrate
 php artisan db:seed
