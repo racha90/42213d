@@ -46,6 +46,11 @@
                         <div class="field">
                             <label>Name *</label>
                             <input type="text" value="" id="name" name="name" placeholder="Name" class="vl_empty" />
+                            @if ($errors->has('name'))
+                                <div>
+                                    {{ $errors->first('name') }}
+                                </div>
+                            @endif
                         </div>
                         <div class="field">
                             <label>Your city *</label>
@@ -55,6 +60,11 @@
                                     <option value="{{ $city->id }}">{{ $city->name }}</option>
                                 @endforeach
                             </select>
+                            @if ($errors->has('city_id'))
+                                <div>
+                                    {{ $errors->first('city_id') }}
+                                </div>
+                            @endif
                         </div>
                         <div class="field">
                             <label>Your area *</label>
@@ -64,20 +74,40 @@
                                     <option value="{{ $area->id }}">{{ $area->name }}</option>
                                 @endforeach
                             </select>
+                            @if ($errors->has('area_id'))
+                                <div>
+                                    {{ $errors->first('area_id') }}
+                                </div>
+                            @endif
                         </div>
 
                         <div class="field">
                             <label>Street</label>
                             <input type="text" value="" id="street" name="street" placeholder="Street" class="vl_empty" />
+                            @if ($errors->has('street'))
+                                <div>
+                                    {{ $errors->first('street') }}
+                                </div>
+                            @endif
                         </div>
                         <div class="field">
                             <label>House # </label>
                             <input type="text" value="" id="house" name="house" placeholder="House Name / Number" />
+                            @if ($errors->has('house'))
+                                <div>
+                                    {{ $errors->first('house') }}
+                                </div>
+                            @endif
                         </div>
 
                         <div class="field">
                             <label class="pos_top">Additional information</label>
                             <textarea id="info" name="info"></textarea>
+                            @if ($errors->has('info'))
+                                <div>
+                                    {{ $errors->first('info') }}
+                                </div>
+                            @endif
                         </div>
 
                         <div class="field">

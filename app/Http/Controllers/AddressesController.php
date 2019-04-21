@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddressRequest;
 use Illuminate\Http\Request;
 use App\Address;
 use App\Area;
@@ -42,27 +43,19 @@ class AddressesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddressRequest $request)
     {
         $newAddress = new Address([
             'name' => $request->input('name'),
-            'city_id' => $request->get('city_id'),
-            'area_id' => $request->get('area_id'),
+            'city_id' => $request->input('city_id'),
+            'area_id' => $request->input('area_id'),
             'street' => $request->input('street'),
             'house' => $request->input('house'),
-            'info' => $request->input('info'),
+            'info' => $request->input('info')
         ]);
         $newAddress->save();
 
-        $addresses = Address::with(['city', 'area'])->orderBy('name', 'asc')->simplePaginate(3);
-        $cities = City::all();
-        $areas = Area::all();
-
-        return view('addresses', [
-            'addresses' => $addresses,
-            'cities' => $cities,
-            'areas' => $areas,
-        ]);
+        return redirect(route('addresses'));
     }
 
     /**
